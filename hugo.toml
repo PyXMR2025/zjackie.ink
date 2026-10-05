@@ -1,5 +1,176 @@
 baseURL = 'https://zjackie.ink/'
 locale = 'zh-CN'
+defaultContentLanguage = 'zh'
 title = 'ZJACKIE.INK'
 theme = 'PaperMod'
 copyright = '&copy; 2026 Jackie · Content licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)'
+
+# 分页配置
+paginate = 10
+
+# 摘要长度
+summaryLength = 70
+
+# 启用 Git 信息（用于显示最后更新时间）
+enableGitInfo = true
+
+# 启用 emoji
+enableEmoji = true
+
+# 启用 robots.txt
+enableRobotsTXT = true
+
+# 构建配置
+[build]
+  writeStats = true
+
+# 输出格式
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+# 永久链接格式
+[permalinks]
+  posts = '/:year/:month/:slug/'
+
+# 分类配置
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+  series = 'series'
+
+# 菜单配置
+[[menu.main]]
+  identifier = 'home'
+  name = '首页'
+  url = '/'
+  weight = 10
+
+[[menu.main]]
+  identifier = 'posts'
+  name = '文章'
+  url = '/posts/'
+  weight = 20
+
+[[menu.main]]
+  identifier = 'archives'
+  name = '归档'
+  url = '/archives/'
+  weight = 30
+
+[[menu.main]]
+  identifier = 'categories'
+  name = '分类'
+  url = '/categories/'
+  weight = 40
+
+[[menu.main]]
+  identifier = 'tags'
+  name = '标签'
+  url = '/tags/'
+  weight = 50
+
+[[menu.main]]
+  identifier = 'search'
+  name = '搜索'
+  url = '/search/'
+  weight = 60
+
+[[menu.main]]
+  identifier = 'about'
+  name = '关于'
+  url = '/about/'
+  weight = 70
+
+# PaperMod 主题参数
+[params]
+  env = 'production'
+  description = '区块链、隐私技术、加密货币技术与 IT 随笔'
+  author = 'Jackie'
+  defaultTheme = 'auto'  # auto, light, dark
+  disableThemeToggle = false
+  ShowShareButtons = true
+  ShareButtons = ['x', 'linkedin', 'reddit', 'telegram', 'whatsapp']
+  ShowReadingTime = true
+  ShowWordCount = true
+  ShowToc = true
+  TocOpen = false
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowPostNavLinks = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = false
+  ShowAllPagesInArchive = false
+  ShowPageNums = true
+  mainSections = ['posts']
+
+  # 首页信息
+  [params.homeInfoParams]
+    Title = 'Hi, 我是 Jackie'
+    Content = '''
+这里记录我在区块链、隐私技术、加密货币（纯技术视角）以及 IT 领域的学习与实践。
+
+不写软文，不谈投资，只聊技术。
+'''
+    AlignSocialIconsTo = 'center'
+
+  # 社交媒体图标
+  [[params.socialIcons]]
+    name = 'github'
+    url = 'https://github.com/zjackie'
+    title = 'GitHub'
+
+  [[params.socialIcons]]
+    name = 'x'
+    url = 'https://x.com/zjackie'
+    title = 'X'
+
+  [[params.socialIcons]]
+    name = 'rss'
+    url = '/index.xml'
+    title = 'RSS'
+
+  # 编辑链接（可选）
+  # [params.editPost]
+  #   URL = 'https://github.com/zjackie/zjackie.ink/edit/main/content'
+  #   Text = '编辑此页'
+  #   appendFilePath = true
+
+# 标记配置（代码高亮）
+[markup]
+  [markup.highlight]
+    anchorLineNos = true
+    codeFences = true
+    guessSyntax = true
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    style = 'monokai'
+    tabWidth = 4
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+
+# 安全配置（允许 iframe 等）
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_']
+
+# 缓存配置
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+    maxAge = '720h'
