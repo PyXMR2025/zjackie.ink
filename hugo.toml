@@ -1,0 +1,4 @@
+baseURL = 'https://zjackie.ink/'
+locale = 'zh-CN'
+title = 'ZJACKIE.INK'
+theme = 'PaperMod'
